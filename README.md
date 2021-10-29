@@ -158,3 +158,32 @@ WarhammerCore.get().getCooldownManager().getCooldownFormatted(uuid, cooldownID);
 ```java
 c.c(string);
 ```
+
+**PatchAPI**
+The PatchAPI is a modular plugin system that allows features to be enabled/disabled in realtime in game. Think of it as plugins within your plugin.
+
+Creating your Main class:
+```java
+public class TestPatch extends UHCFPatch {
+	public TestPatch(Plugin p) {
+		super(p);
+	}
+
+	public void enable() {}
+	public void disable() {}
+}
+```
+Registering your patch:
+```java
+WarhammerCore.get().registerPatches(new TestPatch());
+```
+Registering things inside your patch:
+```java
+@Override
+public void enable() {
+	registerListener(new TestListener());
+	registerCommand(new CustomCommand());
+	registerCommand(new StructuredCommand());
+	registerTask(new TestTask());
+}
+```
