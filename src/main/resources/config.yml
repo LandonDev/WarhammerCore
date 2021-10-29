@@ -1,0 +1,173 @@
+mongodb:
+  use-uri: true
+  uri: "mongodb://W4JJNtF53Gze6cCqDtGRlMvb93apb7Qgm0zMJyBlh0gN72Pd:CImwn6ktcnlp5Mh5XGAmlx7Xz7fVbjn96GGFPEdkjVE8KCRY@172.18.0.1:27017/?authSource=admin"
+  login-info:
+    ip: kanubis-mongodb-sharded
+    port: 27017
+    database: townydb
+    user: townydb
+    password: townydbpassword
+
+patches:
+  spawner_fee:
+    spawnerFee: false
+    creeper: 39000
+    skeleton: 11500
+    spider: 9500
+    zombie: 11500
+    enderman: 39000
+    cave_spider: 9000
+    pig: 6500
+    sheep: 6500
+    cow: 16250
+    chicken: 6500
+    wolf: 9750
+    iron_golem: 200000
+    blaze: 39000
+    pig_zombie: 39000
+    magma_cube: 500000
+    ghast: 500000
+    mushroom_cow: 500000
+  blockValue:
+    HOPPER: 20000
+    BEACON: 150000
+  ftop:
+    gradualSpawnerValue: false
+    includeBank: false
+    includeHoppers: true
+  fpoints:
+    pointsBuyable: true
+    weekly-increase: 50
+    last-week-reset: 1533931200000
+    vanilla: false
+  chat_filter:
+    block_chat_until_move: true
+    no_duplicates: true
+    remove_chat_colors: true
+    bad_words:
+        - 'fuck'
+        - 'shit'
+        - 'bitch'
+        - 'fag'
+        - 'slut'
+        - 'whore'
+        - 'nigger'
+        - 'faggot'
+        - 'cock'
+        - 'dick'
+        - 'vagina'
+        - 'penis'
+        - 'pussy'
+        - 'clitoris'
+        - 'anal'
+        - 'anus'
+        - 'arse'
+        - 'asshole'
+        - 'bastard'
+        - 'beaner'
+        - 'bish'
+        - 'boner'
+        - 'chink'
+        - 'chode'
+        - 'clit'
+        - 'cum'
+        - 'ddos'
+        - 'dike'
+        - 'dyke'
+        - 'ejaculate'
+        - 'eula'
+        - 'genitalia'
+        - 'horny'
+        - 'jizz'
+        - 'lesbian'
+        - 'lesbo'
+        - 'mandingo'
+        - 'masturbate'
+        - 'nigga'
+        - 'niggar'
+        - 'piss'
+        - 'skank'
+        - 'smegma'
+        - 'testicle'
+        - 'testis'
+        - 'twat'
+        - 'wank'
+        - 'douche'
+        - 'blowjob'
+        - 'cunt'
+        - 'orgasm'
+        - 'masturbation'
+        - 'scrotom'
+        - 'semen'
+        - 'ejaculation'
+        - 'fapp'
+
+# Factions
+
+use-old-help: false
+help:
+  # You can change the page name to whatever you like
+  # We use '1' to preserve default functionality of /f help 1
+  '1':
+    - '&7&m----------------------------------------------------'
+    - '&6&lFactions Help &8- &f(1/2)               '
+    - '&7&m----------------------------------------------------'
+    - '&c/f create &f<name> &8- &7Create your own faction.'
+    - '&c/f who &f<name> &8- &7Show faction information.'
+    - '&c/f tag &f<name> &8- &7Change your faction name.'
+    - '&c/f join &f<name> &8- &7Join to the faction.'
+    - '&c/f list &8- &7List all factions.'
+    - '&c/f top &8- &7View the richest factions.'
+    - '&c/f map &8- &7Map of the surrounding area, click chunks to claim.'
+    - '&c/f sethome &8- &7Set your faction home.'
+    - '&c/f home &8- &7Go to your faction home.'
+    - '&c/f title &f<playername> <title> &8- &7Set a player''s title, color codes supported.'
+    - '&c/f ban &8- &7Ban a member from your faction.'
+    - '&c/f unban &8- &7Unban a member from your faction.'
+    - '&c/f banlist &8- &7List banned players from your faction.'
+    - '&c/f lowpower &8- &7List player with power under max from your faction.'
+    - '&c/f coords &8- &7Broadcast your location to your faction.'
+    - '&c/f showclaims &8- &7List all claims from your faction.'
+    - '&7&m--------------------&r &e/f help 2 &7&m-----------------------'
+  '2':
+    - '&7&m----------------------------------------------------'
+    - '&6&lFactions Help &8- &f(2/3)               '
+    - '&7&m----------------------------------------------------'
+    - '&c/f leave &8- &7Leave your faction.'
+    - '&c/f invite &f<playerName> &8- &7Invite a player to your faction.'
+    - '&c/f deinvite &f<playerName> &8- &7Revoke invitation to player.'
+    - '&c/f claim &8- &7Claim a land for your faction.'
+    - '&c/f unclaim &8- &7Unclaim land from your faction.'
+    - '&c/f kick &f<playerName> &8- &7Kick player from your faction.'
+    - '&c/f mod &f<playerName> &8- &7Set player to mod role in faction.'
+    - '&c/f coleader &f<playerName> &8- &7Set player to coleader role in faction.'
+    - '&c/f leader &f<playerName> &8- &7Set player role to leader in faction.'
+    - '&c/f chat &f<Faction | Ally | Public> &8- &7Switch to Faction/Ally/Public chat.'
+    - '&c/f warp &8- &7Opens the warp menu.'
+    - '&c/f setwarp &8- &7Set a warp.'
+    - '&c/f perms &8- &7Change what players can do in your claims.'
+    - '&c/f upgrades &8- &7Upgrade various perks in your faction.'
+    - '&c/f checkpoint &8- &7Set a faction checkpoint.'
+    - '&c/f tnt add/take &f<amount> &8- &7Faction Based TNT Bank.'
+    - '&c/f tntfill &f<radius> <amount> &8- &7Tnt fill integrated into the tntbank!'
+    - '&c/f chest &8- &7Open a virtual faction chest! '
+    - '&c/f version &8- &7Display current faction version.'
+    - '&7&m--------------------&r &e/f help 3 &7&m-----------------------'
+  '3':
+    - '&7&m----------------------------------------------------'
+    - '&6&lFactions Help &8- &f(3/3)               '
+    - '&7&m----------------------------------------------------'
+    - '&c/f shop &8- &7Open Shop GUI.'
+    - '&c/f check &8- &7Manage All Check Settings.'
+    - '&c/f weewoo &8- &7Alert all faction members you are being raided.'
+    - '&c/f missions &8- &7Open/Manage all mission/objectives to complete!'
+    - '&c/f alts &8- &7Manage All Alts via commands.'
+    - '&c/f corner &8- &7Use this command in a corner chunk, to claim your entire buffer.'
+    - '&c/f logout &8- &7Safetly logout, hcf style.'
+    - '&c/f global &8- &7toggle public chat off and only allow faction based chats.'
+    - '&c/f points &8- &7Check your factions points.'
+    - '&c/f invsee &8- &7Check a faction members inventory.'
+    - '&c/f stealth &8- &7Go into stealth mode to not disable enemies flight.'
+    - '&c/f notifications &8- &7Disable or enable faction claim notifications.'
+    - '&c/f wild &8- &7Teleport to a random location is a specific radius.'
+    - '&7&m--------------------&r &e/f help &7&m-----------------------'
