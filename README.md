@@ -2,7 +2,17 @@
 This repository is the code for the core to WarhammerUHCF. The code is licensed for use only on this network and should not be viewed or used outside of it in anyway without permission by the applicable entities.
 
 # For Admins/Config
-This section will come soon.
+
+**Commands**
+`/acore`
+
+**Permissions**
+Format: core.<type>.<value>
+Example: core.command.acore
+	 core.patch.<patch-name>.<value>
+	
+- SpawnerFee:
+	core.patch.spawnerfee.modifier.<modifier>
 
 # For Developers
 
