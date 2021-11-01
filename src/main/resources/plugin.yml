@@ -5,6 +5,12 @@ softdepend: [Citizens, PermissionsEx, Permissions, EssentialsChat, HeroChat, iCh
              nChat, ChatManager, CAPI, AuthMe, AuthDB, CaptureThePoints, CombatTag, WorldEdit, WorldGuard, WorldBorder]
 depend: [Vault, Essentials]
 commands:
+  spawnerfee:
+    description: None
+  fupgrade:
+    description: None
+  fcrystal:
+    description: None
   kills:
     description: kills base command
   deaths:

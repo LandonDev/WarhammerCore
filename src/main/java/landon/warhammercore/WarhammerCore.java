@@ -1,10 +1,7 @@
 package landon.warhammercore;
 
 import com.massivecraft.factions.*;
-import com.massivecraft.factions.struct.ChatMode;
-import com.massivecraft.factions.zcore.util.TextUtil;
 import fr.minuskube.inv.SmartInvsPlugin;
-import jdk.nashorn.internal.ir.Block;
 import landon.warhammercore.commands.CmdACore;
 import landon.warhammercore.commands.CmdCustomItem;
 import landon.warhammercore.deathbans.DeathbanManager;
@@ -12,11 +9,13 @@ import landon.warhammercore.deathbans.lives.LifeListeners;
 import landon.warhammercore.deathbans.lives.LifeManager;
 import landon.warhammercore.listeners.CustomItemListener;
 import landon.warhammercore.listeners.EnderChestListener;
-import landon.warhammercore.patches.UHCFPatch;
-import landon.warhammercore.patches.patches.blockvalues.BlockValue;
-import landon.warhammercore.patches.patches.chat.ChatFilter;
-import landon.warhammercore.patches.patches.fpoints.FactionPoints;
-import landon.warhammercore.patches.patches.ftop.FactionsTop;
+import landon.warhammercore.patchapi.UHCFPatch;
+import landon.warhammercore.patchapi.patches.blockvalues.BlockValue;
+import landon.warhammercore.patchapi.patches.chat.ChatFilter;
+import landon.warhammercore.patchapi.patches.fpoints.FactionPoints;
+import landon.warhammercore.patchapi.patches.ftop.FactionsTop;
+import landon.warhammercore.patchapi.patches.fupgrades.FactionUpgrades;
+import landon.warhammercore.patchapi.patches.spawnerfree.SpawnerFee;
 import landon.warhammercore.scoreboard.ScoreboardManager;
 import landon.warhammercore.titles.cmds.CmdTitle;
 import landon.warhammercore.titles.listeners.VoucherListener;
@@ -28,18 +27,13 @@ import landon.warhammercore.util.items.CustomItemManager;
 import landon.warhammercore.util.mongo.MongoDB;
 import lombok.Getter;
 import lombok.Setter;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandMap;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.*;
-import java.util.logging.Level;
 
 @Getter
 @Setter
@@ -52,9 +46,18 @@ public final class WarhammerCore {
     private LifeManager lifeManager;
     private List<UHCFPatch> enabledPatches;
     private List<UHCFPatch> allPatches;
+    public static Economy economy = null;
+
+    private boolean setupEconomy() {
+        RegisteredServiceProvider<Economy> economyProvider = P.p.getServer().getServicesManager().getRegistration(Economy.class);
+        if (economyProvider != null)
+            economy = (Economy)economyProvider.getProvider();
+        return (economy != null);
+    }
 
     public void onEnable() {
         instance = this;
+        setupEconomy();
         P.p.saveDefaultConfig();
         cooldownUtil = new Cooldowns(P.p);
         cooldownUtil.loadCooldowns();
@@ -89,7 +92,7 @@ public final class WarhammerCore {
         }, 20L);
         this.enabledPatches = new ArrayList<>();
         this.allPatches = new ArrayList<>();
-        this.registerPatches(new ChatFilter(P.p), new FactionPoints(P.p), new BlockValue(P.p), new FactionsTop(P.p));
+        this.registerPatches(new ChatFilter(P.p), new FactionPoints(P.p), new BlockValue(P.p), new FactionsTop(P.p), new SpawnerFee(P.p), new FactionUpgrades(P.p));
     }
 
     public void registerPatches(UHCFPatch... patches) {

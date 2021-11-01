@@ -9,6 +9,10 @@ mongodb:
     password: townydbpassword
 
 patches:
+  chat_format:
+    default: "%faction%&f&l<%rank%&f&l> %rank_color%%name%%colon_color%: %chat_color%%message%"
+  fupgrades:
+    upgradeModifier: 1.0
   spawner_fee:
     spawnerFee: false
     creeper: 39000

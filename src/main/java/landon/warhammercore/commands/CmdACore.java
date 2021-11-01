@@ -2,7 +2,7 @@ package landon.warhammercore.commands;
 
 import com.massivecraft.factions.P;
 import landon.warhammercore.WarhammerCore;
-import landon.warhammercore.patches.UHCFPatch;
+import landon.warhammercore.patchapi.UHCFPatch;
 import landon.warhammercore.util.c;
 import landon.warhammercore.util.customcommand.StructuredCommand;
 import landon.warhammercore.util.customcommand.SubCommand;
