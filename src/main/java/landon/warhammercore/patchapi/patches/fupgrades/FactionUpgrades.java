@@ -4,6 +4,7 @@ import com.massivecraft.factions.P;
 import com.massivecraft.factions.util.gui.listeners.PlayerListener;
 import landon.warhammercore.WarhammerCore;
 import landon.warhammercore.patchapi.UHCFPatch;
+import landon.warhammercore.patchapi.patches.fupgrades.commands.CommandFCrystal;
 import landon.warhammercore.patchapi.patches.fupgrades.commands.CommandFUpgrade;
 import landon.warhammercore.patchapi.patches.fupgrades.listeners.FactionListener;
 import landon.warhammercore.patchapi.patches.fupgrades.listeners.PerkListener;
@@ -37,10 +38,10 @@ public class FactionUpgrades extends UHCFPatch {
         instance = this;
         economy = WarhammerCore.economy;
         P.p.getCommand("fupgrade").setExecutor((CommandExecutor)new CommandFUpgrade());
-        P.p.getCommand("fcrystal").setExecutor((CommandExecutor)new CommandFUpgrade());
-        P.p.getServer().getPluginManager().registerEvents((Listener)new PlayerListener(), (Plugin)this);
-        P.p.getServer().getPluginManager().registerEvents((Listener)new PerkListener(), (Plugin)this);
-        P.p.getServer().getPluginManager().registerEvents((Listener)new FactionListener(), (Plugin)this);
+        P.p.getCommand("fcrystal").setExecutor((CommandExecutor)new CommandFCrystal());
+        P.p.getServer().getPluginManager().registerEvents((Listener)new PlayerListener(), P.p);
+        P.p.getServer().getPluginManager().registerEvents((Listener)new PerkListener(), P.p);
+        P.p.getServer().getPluginManager().registerEvents((Listener)new FactionListener(), P.p);
         this.upgradeManager = new UpgradeManager();
         this.upgradeManager.loadUpgrades();
     }

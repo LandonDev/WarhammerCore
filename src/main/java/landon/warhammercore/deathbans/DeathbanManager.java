@@ -17,10 +17,12 @@ public class DeathbanManager {
     private Set<Deathban> activeDeathbans;
     private Map<UUID, Integer> killMap;
     private static DeathbanManager inst;
+    private HashMap<UUID, Long> reviveCooldowns;
 
     private DeathbanManager() {
         this.activeDeathbans = new HashSet<>();
         this.killMap = new HashMap<>();
+        this.reviveCooldowns = new HashMap<>();
     }
 
     public static DeathbanManager get() {
@@ -36,7 +38,7 @@ public class DeathbanManager {
         Bukkit.getScheduler().runTaskAsynchronously(P.p, () -> {
             for (Document doc : MongoDB.get().getDeathbans().find()) {
                 if(doc.containsKey("uniqueid")) {
-                    Deathban deathban = new Deathban(UUID.fromString(doc.getString("uniqueid")), doc.getLong("started-on"), doc.getLong("ends-on"), doc.getString("death-message"));
+                    Deathban deathban = new Deathban(doc.getString("bannedatname"), UUID.fromString(doc.getString("uniqueid")), doc.getLong("started-on"), doc.getLong("ends-on"), doc.getString("death-message"));
                     this.activeDeathbans.add(deathban);
                 }
                 if(doc.containsKey("kill-uuid")) {
@@ -55,8 +57,17 @@ public class DeathbanManager {
         return null;
     }
 
-    public void createDeathban(UUID uuid, long duration, String deathMessage) {
-        Deathban db = new Deathban(uuid, duration, deathMessage);
+    public Deathban findDeathban(String username) {
+        for (Deathban deathban : this.activeDeathbans) {
+            if(deathban.getBannedAtName().toLowerCase().equals(username)) {
+                return deathban;
+            }
+        }
+        return null;
+    }
+
+    public void createDeathban(String name, UUID uuid, long duration, String deathMessage) {
+        Deathban db = new Deathban(name, uuid, duration, deathMessage);
         this.activeDeathbans.add(db);
         this.storeDeathban(db);
     }
@@ -64,6 +75,7 @@ public class DeathbanManager {
     public void storeDeathban(Deathban deathban) {
         Bukkit.getScheduler().runTaskAsynchronously(P.p, () -> {
             Document doc = new Document();
+            doc.append("bannedatname", deathban.getBannedAtName());
             doc.append("uniqueid", deathban.getUuid().toString());
             doc.append("started-on", deathban.getStartedOn());
             doc.append("ends-on", deathban.getEndsOn());
@@ -101,6 +113,9 @@ public class DeathbanManager {
     public boolean isDeathbanned(Player player) {
         for (Deathban db : this.activeDeathbans) {
             if(db.getUuid().toString().equals(player.getUniqueId().toString())) {
+                if(db.checkExpired()) {
+                    continue;
+                }
                 return true;
             }
         }
@@ -113,7 +128,7 @@ public class DeathbanManager {
                 Document doc = new Document();
                 doc.append("kill-uuid", uuid.toString());
                 doc.append("kills", this.getTotalKills(uuid));
-                if(MongoDB.get().getDeathbans().findOneAndReplace(Filters.eq("uniqueid", uuid.toString()), doc) == null) {
+                if(MongoDB.get().getDeathbans().findOneAndReplace(Filters.eq("kill-uuid", uuid.toString()), doc) == null) {
                     MongoDB.get().getDeathbans().insertOne(doc);
                 }
             });
@@ -121,7 +136,7 @@ public class DeathbanManager {
             Document doc = new Document();
             doc.append("kill-uuid", uuid.toString());
             doc.append("kills", this.getTotalKills(uuid));
-            if(MongoDB.get().getDeathbans().findOneAndReplace(Filters.eq("uniqueid", uuid.toString()), doc) == null) {
+            if(MongoDB.get().getDeathbans().findOneAndReplace(Filters.eq("kill-uuid", uuid.toString()), doc) == null) {
                 MongoDB.get().getDeathbans().insertOne(doc);
             }
         }

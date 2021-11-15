@@ -1,17 +1,22 @@
 package landon.warhammercore;
 
+import com.google.common.collect.Lists;
 import com.massivecraft.factions.*;
 import fr.minuskube.inv.SmartInvsPlugin;
 import landon.warhammercore.commands.CmdACore;
 import landon.warhammercore.commands.CmdCustomItem;
+import landon.warhammercore.commands.CmdLives;
+import landon.warhammercore.commands.CmdRevive;
 import landon.warhammercore.deathbans.DeathbanManager;
 import landon.warhammercore.deathbans.lives.LifeListeners;
 import landon.warhammercore.deathbans.lives.LifeManager;
 import landon.warhammercore.listeners.CustomItemListener;
 import landon.warhammercore.listeners.EnderChestListener;
 import landon.warhammercore.patchapi.UHCFPatch;
+import landon.warhammercore.patchapi.patches.anticrash.AntiCrash;
 import landon.warhammercore.patchapi.patches.blockvalues.BlockValue;
 import landon.warhammercore.patchapi.patches.chat.ChatFilter;
+import landon.warhammercore.patchapi.patches.combattag.CombatLog;
 import landon.warhammercore.patchapi.patches.fpoints.FactionPoints;
 import landon.warhammercore.patchapi.patches.ftop.FactionsTop;
 import landon.warhammercore.patchapi.patches.fupgrades.FactionUpgrades;
@@ -20,6 +25,7 @@ import landon.warhammercore.scoreboard.ScoreboardManager;
 import landon.warhammercore.titles.cmds.CmdTitle;
 import landon.warhammercore.titles.listeners.VoucherListener;
 import landon.warhammercore.titles.mongo.TitleManager;
+import landon.warhammercore.util.armorequip.ArmorListener;
 import landon.warhammercore.util.cooldown.CooldownManager;
 import landon.warhammercore.util.cooldown.Cooldowns;
 import landon.warhammercore.util.customcommand.CommandManager;
@@ -87,12 +93,21 @@ public final class WarhammerCore {
                 ScoreboardManager.get().updateScoreboard(player);
             }
         }, 50L, 50L);
+        P.p.getServer().getPluginManager().registerEvents(new ArmorListener(Lists.newArrayList()), P.p);
+        P.p.getServer().getPluginManager().registerEvents(new landon.warhammercore.armor.ArmorListener(), P.p);
         Bukkit.getScheduler().runTaskLater(P.p, () -> {
             TitleManager.get().load();
         }, 20L);
         this.enabledPatches = new ArrayList<>();
+        try {
+            P.p.getCommandManager().registerCommands(P.p, new CmdLives(), new CmdRevive());
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         this.allPatches = new ArrayList<>();
-        this.registerPatches(new ChatFilter(P.p), new FactionPoints(P.p), new BlockValue(P.p), new FactionsTop(P.p), new SpawnerFee(P.p), new FactionUpgrades(P.p));
+        this.registerPatches(new ChatFilter(P.p), new FactionPoints(P.p), new BlockValue(P.p), new FactionsTop(P.p), new SpawnerFee(P.p), new FactionUpgrades(P.p), new AntiCrash(P.p), new CombatLog(P.p));
     }
 
     public void registerPatches(UHCFPatch... patches) {

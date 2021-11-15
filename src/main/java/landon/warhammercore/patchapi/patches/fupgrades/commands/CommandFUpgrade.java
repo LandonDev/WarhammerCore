@@ -7,6 +7,7 @@ import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.P;
 import landon.warhammercore.patchapi.patches.fpoints.utils.FactionUtils;
 import landon.warhammercore.patchapi.patches.fupgrades.struct.menu.FUpgradeMenu;
+import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,7 +20,7 @@ public class CommandFUpgrade implements CommandExecutor {
         if (!(sender instanceof Player))
             return true;
         Player player = (Player)sender;
-        FPlayer fplayer = (FPlayer)FPlayers.i.get((OfflinePlayer)player);
+        FPlayer fplayer = FPlayers.i.get(player);
         Faction toSee = fplayer.getFaction();
         if (args.length == 1) {
             toSee = FactionUtils.getFactionByTag(args[0]);

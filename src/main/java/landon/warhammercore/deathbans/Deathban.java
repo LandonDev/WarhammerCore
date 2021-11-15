@@ -15,19 +15,22 @@ public class Deathban {
     private long startedOn;
     private long endsOn;
     private String deathMessage;
+    private String bannedAtName;
 
-    public Deathban(UUID uuid, long duration, String deathMessage) {
+    public Deathban(String bannedAtName, UUID uuid, long duration, String deathMessage) {
         this.uuid = uuid;
+        this.bannedAtName = bannedAtName;
         this.startedOn = System.currentTimeMillis();
-        this.endsOn = this.startedOn + duration;
+        this.endsOn = this.startedOn + (duration * 1000);
         this.deathMessage = deathMessage;
         if(Bukkit.getPlayer(uuid) != null) {
             Bukkit.getPlayer(uuid).kickPlayer(this.generateKickMessage());
         }
     }
 
-    public Deathban(UUID uuid, long startedOn, long endsOn, String deathMessage) {
+    public Deathban(String bannedAtName, UUID uuid, long startedOn, long endsOn, String deathMessage) {
         this.uuid = uuid;
+        this.bannedAtName = bannedAtName;
         this.startedOn = startedOn;
         this.endsOn = endsOn;
         this.deathMessage = deathMessage;

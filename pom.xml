@@ -326,6 +326,13 @@
             <systemPath>${project.basedir}/libs/WorldBorder.jar</systemPath>
         </dependency>
         <dependency>
+            <groupId>citizens</groupId>
+            <artifactId>api</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/Citizens.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>

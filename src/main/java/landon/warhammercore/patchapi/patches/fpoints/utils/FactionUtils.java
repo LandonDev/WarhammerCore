@@ -163,6 +163,27 @@ public class FactionUtils {
         return (at == null || isWilderness(at));
     }
 
+    public static Relation getRelation(RelationParticipator part, RelationParticipator part2) {
+        return (Relation)ReflectionUtils.callReflectionMethod(part, RelationParticipator.class, "getRelationTo", new ParamBuilder(RelationParticipator.class, part2));
+    }
+
+    public static boolean isNonPermFaction(Location destination) {
+        Faction at = FactionUtils.getFactionAt(destination);
+        return (at != null && isNonPermFaction(at));
+    }
+
+    public static boolean isNonPermFaction(Faction at) {
+        if (at != null && !((Boolean)FactionUtils.callFactionMethod(at, "isSafeZone", null)).booleanValue() &&
+                !((Boolean)FactionUtils.callFactionMethod(at, "isNone", null)).booleanValue() &&
+                !((Boolean)FactionUtils.callFactionMethod(at, "isWarZone", null)).booleanValue())
+            return true;
+        return false;
+    }
+
+    public static String getTag(Faction faction) {
+        return (String)FactionUtils.callFactionMethod(faction, "getTag", null);
+    }
+
     public static boolean isFactionMember(Faction faction, FPlayer player) {
         return (faction != null && player != null && ReflectionUtils.callReflectionMethod(faction, RelationParticipator.class, "getRelationTo", new ParamBuilder(RelationParticipator.class, player)) == Relation.MEMBER);
     }

@@ -5,6 +5,12 @@ softdepend: [Citizens, PermissionsEx, Permissions, EssentialsChat, HeroChat, iCh
              nChat, ChatManager, CAPI, AuthMe, AuthDB, CaptureThePoints, CombatTag, WorldEdit, WorldGuard, WorldBorder]
 depend: [Vault, Essentials]
 commands:
+  logout:
+    description: None
+    aliases:
+      - exit
+      - quit
+      - leave
   spawnerfee:
     description: None
   fupgrade:

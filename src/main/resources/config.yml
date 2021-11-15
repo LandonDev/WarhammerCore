@@ -9,6 +9,13 @@ mongodb:
     password: townydbpassword
 
 patches:
+  anticrash:
+    entityscan: false
+  combat_log:
+    block_enderpearls: false
+    block_heal: false
+    combat_duration: 8000
+    spawnNPC: false
   chat_format:
     default: "%faction%&f&l<%rank%&f&l> %rank_color%%name%%colon_color%: %chat_color%%message%"
   fupgrades:

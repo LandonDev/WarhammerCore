@@ -3,6 +3,8 @@ package landon.warhammercore.scoreboard;
 import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.FPlayers;
 import com.massivecraft.factions.struct.Role;
+import landon.warhammercore.WarhammerCore;
+import landon.warhammercore.patchapi.patches.ftop.FactionsTop;
 import landon.warhammercore.util.c;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -69,12 +71,12 @@ public class ScoreboardManager {
         objective.setDisplayName(c.c("&6&lWarhammer&9&lMC&r"));
         int index = 16;
         objective.getScore(c.c("&7" + this.format.format(new Date()))).setScore(index--);
+        objective.getScore(c.c("&fLives: &6" + WarhammerCore.get().getLifeManager().getLivesFromCache(player))).setScore(index--);
         objective.getScore(c.c("&fConfig Value: &60")).setScore(index--);
-        objective.getScore(c.c("&fConfig Value: &61")).setScore(index--);
         objective.getScore(c.c("&r")).setScore(index--);
         if (fplayer.hasFaction()) {
             objective.getScore(c.c("&fFaction: &b" + fplayer.getFaction().getTag())).setScore(index--);
-            objective.getScore(c.c("&fFaction Rank: &6#0")).setScore(index--);
+            objective.getScore(c.c("&fFaction Rank: &6#" + FactionsTop.get().getTopManager().getTopFaction(fplayer.getFactionId()).getRank())).setScore(index--);
             objective.getScore(c.c("&f")).setScore(index--);
             objective.getScore(c.c("&fOnline Members: &7" + fplayer.getFaction().getOnlinePlayers().size() + "/" + fplayer.getFaction().getFPlayers().size())).setScore(index--);
             addPlayers(fplayer, objective, index);
