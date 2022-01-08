@@ -1,26 +1,116 @@
 name: Factions
-version: 1.6.8.5.UUID-0.1
+version: Map-01-Build
 main: com.massivecraft.factions.P
 softdepend: [Citizens, PermissionsEx, Permissions, EssentialsChat, HeroChat, iChat, LocalAreaChat,
              nChat, ChatManager, CAPI, AuthMe, AuthDB, CaptureThePoints, CombatTag, WorldEdit, WorldGuard, WorldBorder]
-depend: [Vault, Essentials]
+depend: [Vault]
 commands:
-  logout:
-    description: None
+  i:
+    description: Give items.
+  combattagplus:
+    aliases: [ ctplus, ct, combattag ]
+    description: Check combat tag timer
+    permission: ctplus.check
+    permission-message: '§cYou do not have permission to use that command.'
+  ctplusreload:
+    aliases: [ ctreload ]
+    description: Reload CombatTagPlus config
+    permission: ctplus.reload
+    permission-message: '§cYou do not have permission to use that command.'
+  ctpluslogout:
+    aliases: [ ctlogout, ctlog, logout ]
+    description: Logs out the player without spawning an NPC or killing them
+    permission: ctplus.logout
+    permission-message: '§cYou do not have permission to use that command.'
+  ctplusuntag:
+    aliases: [ ctuntag, untag ]
+    description: Untags the specified player
+    permission: ctplus.untag
+    permission-message: '§cYou do not have permission to use that command.'
+  feed:
+    aliases: [ eat ]
+  heal:
+  enchant:
     aliases:
-      - exit
-      - quit
-      - leave
+      - enchantment
+      - eenchant
+      - eenchantment
+  setspawn:
+  spawn:
+  back:
+  setwarp:
+  delwarp:
+  warps:
+  warp:
+  home:
+  homes:
+  sethome:
+  delhome:
+  withdraw:
+  xpbottle:
+  jcreload:
+    aliases: [ jurassiccorereload ]
+  near:
+  tpa:
+  tpahere:
+  tpaccept:
+  tpdeny:
+  tpacancel:
+  fix:
+    aliases: [ fixall, repair, repairall ]
+  bless:
+  donation:
+  giveall:
+  ecogiveall:
+  xpgiveall:
+  expgiveall:
+  depthstridercrystal:
+    aliases: [ dsc ]
+  enderchest:
+    aliases: [ echest, ec ]
+  sudo:
+  top:
+  clear:
+    aliases: [ clearinventory, ci ]
+  rename:
+  fly:
+  god:
+  msgtoggle:
+  ignore:
+    aliases: [ unignore, delignore, remignore, rmignore, block ]
+  msg:
+    aliases: [ w, m, t, pm, tell, whisper ]
+  gamemode:
+    aliases: [ adventure, adventuremode, creative, creativemode, gm, gma, gmc, gms, survival, survivalmode, gmsp, sp, spec, spectator, spectatormode ]
+  reply:
+    aliases: [ r ]
+  balance:
+    aliases: [ bal, money ]
+  balancetop:
+    aliases: [ baltop ]
+  ignores:
+    aliases: [ blocks ]
+  pay:
+  invsee:
+  paytoggle:
+    aliases: [ payon, payoff ]
+  tp:
+    aliases: [ teleport ]
+  eco:
+    aliases: [ economy ]
+  exp:
+  xp:
+  wilderness:
+    aliases: [ wild ]
+  workbench:
+    aliases: [ craft ]
+  lore:
   spawnerfee:
     description: None
   fupgrade:
     description: None
   fcrystal:
     description: None
-  kills:
-    description: kills base command
-  deaths:
-    description: deaths base command
   factions:
     description: Reference command for Factions.
     aliases: [f]
@@ -28,12 +118,6 @@ commands:
     description: Custom items.
     aliases:
       - customitems
-  title:
-    description: None
-    aliases:
-      - titles
-      - tag
-      - tags
   afaction:
     description: Admin faction command
   blockvalue:

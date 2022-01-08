@@ -24,7 +24,6 @@
  */
 package com.massivecraft.factions.cmd;
 
-import com.earth2me.essentials.User;
 import com.google.common.collect.Lists;
 import com.massivecraft.factions.*;
 import com.massivecraft.factions.integration.Econ;
@@ -196,16 +195,10 @@ public class CmdShow extends FCommand {
 
                                 while (true) {
                                     FPlayer follower;
-                                    User user;
                                     double balance;
                                     OfflinePlayer plyer;
                                     while (var32.hasNext()) {
                                         follower = (FPlayer) var32.next();
-                                        if (isUUID(follower.getAccountId())) {
-                                            user = EssentialsFeatures.getEssentials().getUser(UUID.fromString(follower.getId()));
-                                        } else {
-                                            user = EssentialsFeatures.getEssentials().getUser(follower.getId());
-                                        }
                                         plyer = Bukkit.getOfflinePlayer(UUID.fromString(follower.getId()));
                                         if (plyer == null || plyer.getName() == null) {
                                             Bukkit.getLogger().info("Null offline player name for " + follower.getId());
@@ -218,13 +211,13 @@ public class CmdShow extends FCommand {
                                                 onlineList.then(", ");
                                             }
 
-                                            onlineList = follower.appendNameAndTitleWithPowerAsync(user, balance, this.fme, onlineList, follower.getPlayer()).then(this.p.txt.parse("<p>"));
+                                            onlineList = follower.appendNameAndTitleWithPowerAsync(balance, this.fme, onlineList, follower.getPlayer()).then(this.p.txt.parse("<p>"));
                                         } else {
                                             if (!offlineList.toOldMessageFormat().endsWith(" ")) {
                                                 offlineList.then(", ");
                                             }
 
-                                            offlineList = follower.appendNameAndTitleWithPowerAsync(user, balance, this.fme, offlineList, null).then(this.p.txt.parse("<p>"));
+                                            offlineList = follower.appendNameAndTitleWithPowerAsync(balance, this.fme, offlineList, null).then(this.p.txt.parse("<p>"));
                                         }
                                     }
 
@@ -233,13 +226,6 @@ public class CmdShow extends FCommand {
                                     while (true) {
                                         while (var32.hasNext()) {
                                             follower = (FPlayer) var32.next();
-                                            if (isUUID(follower.getAccountId())) {
-                                                user = EssentialsFeatures.getEssentials().getUser(UUID.fromString(follower.getId()));
-
-                                            } else {
-                                                user = EssentialsFeatures.getEssentials().getUser(follower.getId());
-
-                                            }
                                             plyer = Bukkit.getOfflinePlayer(UUID.fromString(follower.getId()));
                                             if (plyer == null || plyer.getName() == null) {
                                                 Bukkit.getLogger().info("Null offline player name for " + follower.getId());
@@ -252,13 +238,13 @@ public class CmdShow extends FCommand {
                                                     onlineList.then(", ");
                                                 }
 
-                                                onlineList = follower.appendNameAndTitleWithPowerAsync(user, balance, this.fme, onlineList, follower.getPlayer()).then(this.p.txt.parse("<p>"));
+                                                onlineList = follower.appendNameAndTitleWithPowerAsync(balance, this.fme, onlineList, follower.getPlayer()).then(this.p.txt.parse("<p>"));
                                             } else {
                                                 if (!offlineList.toOldMessageFormat().endsWith(" ")) {
                                                     offlineList.then(", ");
                                                 }
 
-                                                offlineList = follower.appendNameAndTitleWithPowerAsync(user, balance, this.fme, offlineList, null).then(this.p.txt.parse("<p>"));
+                                                offlineList = follower.appendNameAndTitleWithPowerAsync(balance, this.fme, offlineList, null).then(this.p.txt.parse("<p>"));
                                             }
                                         }
 
@@ -267,12 +253,6 @@ public class CmdShow extends FCommand {
                                         while (true) {
                                             while (var32.hasNext()) {
                                                 follower = (FPlayer) var32.next();
-                                                if (isUUID(follower.getAccountId())) {
-                                                    user = EssentialsFeatures.getEssentials().getUser(UUID.fromString(follower.getId()));
-                                                } else {
-                                                    user = EssentialsFeatures.getEssentials().getUser(follower.getId());
-
-                                                }
                                                 plyer = Bukkit.getOfflinePlayer(UUID.fromString(follower.getId()));
                                                 if (plyer == null || plyer.getName() == null) {
                                                     Bukkit.getLogger().info("Null offline player name for " + follower.getId());
@@ -285,13 +265,13 @@ public class CmdShow extends FCommand {
                                                         onlineList.then(", ");
                                                     }
 
-                                                    onlineList = follower.appendNameAndTitleWithPowerAsync(user, balance, this.fme, onlineList, follower.getPlayer()).then(this.p.txt.parse("<p>"));
+                                                    onlineList = follower.appendNameAndTitleWithPowerAsync(balance, this.fme, onlineList, follower.getPlayer()).then(this.p.txt.parse("<p>"));
                                                 } else {
                                                     if (!offlineList.toOldMessageFormat().endsWith(" ")) {
                                                         offlineList.then(", ");
                                                     }
 
-                                                    offlineList = follower.appendNameAndTitleWithPowerAsync(user, balance, this.fme, offlineList, null).then(this.p.txt.parse("<p>"));
+                                                    offlineList = follower.appendNameAndTitleWithPowerAsync(balance, this.fme, offlineList, null).then(this.p.txt.parse("<p>"));
                                                 }
                                             }
 
@@ -300,13 +280,6 @@ public class CmdShow extends FCommand {
                                             while (true) {
                                                 while (var32.hasNext()) {
                                                     follower = (FPlayer) var32.next();
-                                                    if (isUUID(follower.getAccountId())) {
-                                                        user = EssentialsFeatures.getEssentials().getUser(UUID.fromString(follower.getId()));
-
-                                                    } else {
-                                                        user = EssentialsFeatures.getEssentials().getUser(follower.getId());
-
-                                                    }
                                                     plyer = Bukkit.getOfflinePlayer(UUID.fromString(follower.getId()));
                                                     if (plyer == null || plyer.getName() == null) {
                                                         Bukkit.getLogger().info("Null offline player name for " + follower.getId());
@@ -319,13 +292,13 @@ public class CmdShow extends FCommand {
                                                             onlineList.then(", ");
                                                         }
 
-                                                        onlineList = follower.appendNameAndTitleWithPowerAsync(user, balance, this.fme, onlineList, follower.getPlayer()).then(this.p.txt.parse("<p>"));
+                                                        onlineList = follower.appendNameAndTitleWithPowerAsync(balance, this.fme, onlineList, follower.getPlayer()).then(this.p.txt.parse("<p>"));
                                                     } else {
                                                         if (!offlineList.toOldMessageFormat().endsWith(" ")) {
                                                             offlineList.then(", ");
                                                         }
 
-                                                        offlineList = follower.appendNameAndTitleWithPowerAsync(user, balance, this.fme, offlineList, null).then(this.p.txt.parse("<p>"));
+                                                        offlineList = follower.appendNameAndTitleWithPowerAsync(balance, this.fme, offlineList, null).then(this.p.txt.parse("<p>"));
                                                     }
                                                 }
 

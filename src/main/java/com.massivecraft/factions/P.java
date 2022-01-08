@@ -29,11 +29,8 @@ import com.google.gson.GsonBuilder;
 import com.massivecraft.factions.cmd.CmdAutoHelp;
 import com.massivecraft.factions.cmd.CommandAdminFaction;
 import com.massivecraft.factions.cmd.FCmdRoot;
-import com.massivecraft.factions.cmd.killtracker.CmdDeaths;
-import com.massivecraft.factions.cmd.killtracker.CmdKills;
 import com.massivecraft.factions.cmd.killtracker.FileManager;
 import com.massivecraft.factions.integration.Econ;
-import com.massivecraft.factions.integration.EssentialsFeatures;
 import com.massivecraft.factions.listeners.*;
 import com.massivecraft.factions.listeners.menu.MenuListener;
 import com.massivecraft.factions.listeners.menu.fchest.FChestListener;
@@ -47,10 +44,12 @@ import com.massivecraft.factions.zcore.MPlugin;
 import com.massivecraft.factions.zcore.util.MojangUUIDFetcher;
 import com.massivecraft.factions.zcore.util.TextUtil;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
-import landon.warhammercore.WarhammerCore;
-import landon.warhammercore.patchapi.patches.fpoints.utils.FactionUtils;
-import landon.warhammercore.util.customcommand.CommandManager;
+import landon.core.WarhammerCore;
+import landon.core.patchapi.patches.fpoints.utils.FactionUtils;
+import landon.core.util.customcommand.CommandManager;
+import landon.jurassiccore.JurassicCore;
 import net.milkbowl.vault.economy.Economy;
+import net.minelink.ctplus.CombatTagPlus;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -67,6 +66,7 @@ import java.util.*;
 import java.util.logging.Level;
 
 public class P extends MPlugin {
+    private static JurassicCore jurassicCore;
     public static P p;
     public final FactionsPlayerListener playerListener;
     public final FactionsChatListener chatListener;
@@ -90,6 +90,8 @@ public class P extends MPlugin {
     private FileManager fileManager;
     private CommandManager commandManager;
     public static WorldGuardPlugin wg = null;
+
+    public static CombatTagPlus combatTagPlus;
 
     private static WarhammerCore core;
 
@@ -170,11 +172,8 @@ public class P extends MPlugin {
         this.fileManager = new FileManager();
         wg = this.getWorldGuard();
         getFileManager().setupFiles(); // load the files...
-        getCommand("kills").setExecutor(new CmdKills());
-        getCommand("deaths").setExecutor(new CmdDeaths());
 
        this.getBaseCommands().add(this.cmdBase);
-        EssentialsFeatures.setup();
         Econ.setup();
         this.getServer().getPluginManager().registerEvents(this.playerListener, this);
         this.getServer().getPluginManager().registerEvents(this.chatListener, this);
@@ -235,6 +234,10 @@ public class P extends MPlugin {
         core = new WarhammerCore();
         core.onEnable();
         FactionUtils.init();
+        jurassicCore = new JurassicCore();
+        jurassicCore.onEnable();
+        combatTagPlus = new CombatTagPlus();
+        combatTagPlus.onEnable();
     }
 
     private WorldGuardPlugin getWorldGuard() {
@@ -282,6 +285,8 @@ public class P extends MPlugin {
         }
         CustomGUI.activeGUIs.values().forEach(CustomGUI::close);
         core.onDisable();
+        jurassicCore.onDisable();
+        combatTagPlus.onDisable();
     }
 
     public FileManager getFileManager() {

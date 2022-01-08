@@ -62,7 +62,6 @@ import com.massivecraft.factions.util.TimeUtil;
 import com.massivecraft.factions.util.WorldGuardUtils;
 import com.massivecraft.factions.zcore.util.MojangUUIDFetcher;
 import com.massivecraft.factions.zcore.util.TextUtil;
-import landon.warhammercore.scoreboard.ScoreboardManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -166,9 +165,6 @@ public class FactionsPlayerListener
                 if (!event.getFPlayer().hasFaction() || event.getFPlayer().getFaction() == null) {
                     return;
                 }
-                for (Player player : event.getFPlayer().getFaction().getOnlinePlayers()) {
-                    ScoreboardManager.get().updateScoreboard(player);
-                }
             }
         }, 10L);
     }
@@ -180,9 +176,6 @@ public class FactionsPlayerListener
                 return;
             }
             if (Conf.factionScoreboardEnable) {
-                for (Player player : FPlayers.i.get(event.getFPlayer().getPlayer()).getFaction().getOnlinePlayers()) {
-                    ScoreboardManager.get().updateScoreboard(player);
-                }
             }
         }, 10L);
     }

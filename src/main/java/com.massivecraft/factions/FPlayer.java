@@ -24,8 +24,6 @@
 package com.massivecraft.factions;
 
 import com.cosmicpvp.cosmicutils.utils.CC;
-import com.earth2me.essentials.User;
-import com.earth2me.essentials.utils.DateUtil;
 import com.google.common.collect.Lists;
 
 import com.massivecraft.factions.event.FPlayerLeaveEvent;
@@ -449,10 +447,10 @@ public class FPlayer
         return fancy_message;
     }
 
-    public FancyMessage appendNameAndTitleWithPowerAsync(User user, double balance, FPlayer fplayer, FancyMessage fancy_message, Player instance) {
+    public FancyMessage appendNameAndTitleWithPowerAsync(double balance, FPlayer fplayer, FancyMessage fancy_message, Player instance) {
         ChatColor relation_color = this.getColorTo(fplayer);
         for (String word : this.getNameAndSomethingAsync(this.getTitle()).split(" ")) {
-            ArrayList messages = Lists.newArrayList((Object[]) new FancyMessage[]{new FancyMessage(ChatColor.valueOf(Conf.hoverNames) + "Username: " + ChatColor.valueOf(Conf.hoverChatColor) + this.getNameAsync()), new FancyMessage(ChatColor.valueOf(Conf.hoverNames) + "Balance: " + ChatColor.valueOf(Conf.hoverChatColor) + "$" + this.formatter.format(balance)), new FancyMessage(ChatColor.valueOf(Conf.hoverNames) + "Power: " + ChatColor.valueOf(Conf.hoverChatColor) + this.getPowerRounded() + ChatColor.valueOf(Conf.hoverSlashColor) + "/" + ChatColor.valueOf(Conf.hoverChatColor) + (int) Conf.powerPlayerMax), new FancyMessage(ChatColor.valueOf(Conf.hoverNames) + "Last Login: " + ChatColor.valueOf(Conf.hoverChatColor) + DateUtil.formatDateDiff(user.getLastLogin()) + " ago")});
+            ArrayList messages = Lists.newArrayList((Object[]) new FancyMessage[]{new FancyMessage(ChatColor.valueOf(Conf.hoverNames) + "Username: " + ChatColor.valueOf(Conf.hoverChatColor) + this.getNameAsync()), new FancyMessage(ChatColor.valueOf(Conf.hoverNames) + "Balance: " + ChatColor.valueOf(Conf.hoverChatColor) + "$" + this.formatter.format(balance)), new FancyMessage(ChatColor.valueOf(Conf.hoverNames) + "Power: " + ChatColor.valueOf(Conf.hoverChatColor) + this.getPowerRounded() + ChatColor.valueOf(Conf.hoverSlashColor) + "/" + ChatColor.valueOf(Conf.hoverChatColor) + (int) Conf.powerPlayerMax)});
             //if (instance != null) {
             //    messages.add(new FancyMessage(ChatColor.AQUA + "Cosmic Client: " + (instance.hasMetadata("cosmicClientVersion") ? ChatColor.GREEN.toString() + ChatColor.BOLD + "\u2713" : ChatColor.RED.toString() + ChatColor.BOLD + "\u2717")));
            // }

@@ -17,6 +17,7 @@
     </properties>
 
     <build>
+        <finalName>JurassicCore</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -230,12 +231,6 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>net.essentialsx</groupId>
-            <artifactId>EssentialsX</artifactId>
-            <version>2.19.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.dynmap</groupId>
             <artifactId>dynmap</artifactId>
             <version>2.0</version>
@@ -333,6 +328,13 @@
             <systemPath>${project.basedir}/libs/Citizens.jar</systemPath>
         </dependency>
         <dependency>
+            <groupId>citizens</groupId>
+            <artifactId>JurassicDungeons</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/JurassicDungeons.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>
@@ -341,6 +343,11 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
             <version>1.5.10</version>
+        </dependency>
+        <dependency>
+            <groupId>fr.minuskube.inv</groupId>
+            <artifactId>smart-invs</artifactId>
+            <version>1.2.7</version>
         </dependency>
     </dependencies>
 </project>

@@ -1,0 +1,980 @@
+Commands:
+  Feed:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /feed [<player>]"
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+    Feed:
+      # Leave empty to stop message being sent to the player.
+      Yourself:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have fed yourself."
+      # Leave empty to stop message being sent to the player.
+      Player:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have fed the player &d%player&e."
+      # Leave empty to stop message being sent to the player.
+      Receiver:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have been fed by the player &d%player&e."
+    Offline:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThat player is not connected to the server."
+    Cooldown:
+      Word:
+        Minute: "Minute(s)"
+        Second: "Second(s)"
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou must wait &7%time &ebefore performing that command."
+  Heal:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+    Healed:
+      # Leave empty to stop message being sent to the player.
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have healed yourself."
+    Cooldown:
+      Word:
+        Minute: "Minute(s)"
+        Second: "Second(s)"
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou must wait &7%time &ebefore performing that command."
+  SetSpawn:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Set:
+      Message: "&bJurassicCommands &8| &aInfo&8: &eThe spawn point has been set to your location."
+  Spawn:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+    Set:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to the spawn point because the spawn point location hasn't been set."
+    Location:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe location of the spawn point cannot be found."
+    Pending:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou have a pending teleport."
+    Combat:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to the spawn because you are in combat."
+    Teleporting:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou will be teleported in &7%seconds Seconds&e."
+    Teleported:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have been teleport to &bSpawn&e."
+  Back:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+    Location:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThere was no last location found."
+    Pending:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to your last location because you have a pending teleport."
+    Combat:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to your last location because you are in combat."
+    Teleporting:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou will be teleported in &7%seconds Seconds&e."
+    Teleported:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have been teleport to your last location."
+  SetWarp:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /setwarp <warp>"
+    Exist:
+      Message: "&bJurassicCommands &8| &cError&8: &eA warp by that name already exists."
+    Set:
+      Message: "&bJurassicCommands &8| &aInfo&8: &eThe location for the warp &a%warp &ehas been set to your location."
+  DelWarp:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /delwarp <warp>"
+    Exist:
+      Message: "&bJurassicCommands &8| &cError&8: &eA warp by that name does not exist."
+    Removed:
+      Message: "&bJurassicCommands &8| &aInfo&8: &eYou have removed the warp &c%warp&e."
+  Warp:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /warp <warp>"
+    Warps:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThere are no warps to teleport to."
+    Exist:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eA warp by that name does not exist."
+    Location:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe location for the warp &a%warp &ecannot be found."
+    Combat:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to the warp &d%warp &ebecause you are in combat."
+    Teleporting:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou will be teleported to the warp &a%warp &ein &7%seconds Seconds&e."
+    Teleported:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have been teleport to the warp &a%warp&e."
+  Home:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /home [<name>]"
+    Exist:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have a home with the name &c%home&e."
+    Homes:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have any homes to teleport to."
+    Location:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe location for the home &a%home &ecannot be found."
+    Combat:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to the home &d%home &ebecause you are in combat."
+    Region:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to the home &d%home &ebecause it is in a region. The home has automatically been removed."
+    Faction:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to the home &d%home &ebecause it is in someone elses faction claim. The home has automatically been removed"
+    Teleporting:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou will be teleported to the home &a%home &ein &7%seconds Seconds&e."
+    Teleported:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have been teleport to the home &a%home&e."
+  SetHome:
+    Permission:
+      Command:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+      Home:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to set any more homes."
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /sethome [<name>]"
+    Exist:
+      Default:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eThe default home has already been set."
+      Other:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eA home with the name &c%home &ehas already been set."
+    Region:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot set a home in a region."
+    Faction:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot set a home in someone elses faction claim."
+    Set:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe home &a%home &ehas been set to your location."
+  DelHome:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /delhome <name>"
+    Exist:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have a home with the name &c%home&e."
+    Remove:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot remove the home &c%home &ewhile you have a pending teleport for it."
+    Removed:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have removed the home with the name &c%home&e."
+  Withdraw:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /withdraw <money>"
+    Numerical:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou must provide a numerical value."
+    Length:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe amount must be less than 1 Billion."
+    Zero:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou must provide a number greater than zero."
+    Balance:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have that much money to withdraw in your balance."
+    Inventory:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have enough space in your inventory."
+    Withdrawal:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have withdraw &6$%money &efrom your balance."
+  XPBottle:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /XPBottle <exp>"
+    Numerical:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou must provide a numerical value."
+    Length:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe amount must be less than 1 Billion."
+    Zero:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou must provide a number greater than zero."
+    Balance:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have enough experience to extract."
+    Inventory:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have enough space in your inventory."
+    Extracted:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have extracted &6%experience &eexperience."
+  JCReload:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Reloaded:
+      Message: "&bJurassicCommands &8| &aInfo&8: &eYou have reloaded the configuration file."
+  Near:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+    Players:
+      None:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eThere are no players nearby."
+      Near:
+        Format: "&8* &f%player &7- &e[%distance&e]"
+        Lines:
+          - "&aJurassic&2PvP &8| &aThere are &e%players &aplayer(s) nearby&8:"
+          - "%players_list"
+  TPA:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /tpa <player>"
+    Offline:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThat player is not connected to the server."
+    Yourself:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot send a teleport request to yourself."
+    Teleporting:
+      Player:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to that player because you are teleporting to another player."
+      Target:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to that player because they are teleporting to another player."
+    Request:
+      Player:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to that player because you have a pending request. Type &f&o'/tpacancel' &eto cancel the request."
+      Target:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to that player because they have a pending request."
+    Notify:
+      Player:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have send a teleport request to teleport to the player &a%player&e. They have &7120 seconds &eto accept. Type &f&o'/tpacancel' &eto cancel the request."
+      Receiver:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have received a teleport request from the player &a%player &eto teleport to you. Type &f&o'/tpaccept' &eto accept or &f&o'/tpdeny' &eto deny the request."
+  TPAHere:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /tpahere <player>"
+    Offline:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThat player is not connected to the server."
+    Yourself:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot send a teleport request to yourself."
+    Teleporting:
+      Player:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eThat player cannot teleport to you because you are teleporting to another player."
+      Target:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eThat player cannot teleport to you because they are teleporting to another player."
+    Request:
+      Player:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eThat player cannot teleport to you because you have a pending request. Type &f&o'/tpacancel' &eto cancel the request."
+      Target:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eThat player cannot teleport to you because they have a pending request."
+    Notify:
+      Player:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have send a teleport request for the player &a%player &eto teleport you. They have &7120 seconds &eto accept. Type &f&o'/tpacancel' &eto cancel the request."
+      Receiver:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have received a teleport request from the player &a%player &efor you to teleport to them. Type &f&o'/tpaccept' &eto accept or &f&o'/tpdeny' &eto deny the request."
+  TPAccept:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /tpaccept <player>"
+    Offline:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThat player is not connected to the server."
+    Yourself:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept a teleport request from yourself."
+    Pending:
+      Player:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have a pending teleport request from that player."
+      Recent:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have a recent pending teleport."
+    Teleporting:
+      Player:
+        Target:
+          Message: "&aJurassic&2PvP &8| &cError&8: &eYou have already accepted that players teleport request. Teleportation will commence in &7%seconds Second(s)&e."
+        Other:
+          Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept that players teleport request because you are teleporting."
+      Target:
+        Target:
+          Message: "&aJurassic&2PvP &8| &cError&8: &eYou have already accepted that players teleport request. Teleportation will commence in &7%seconds Second(s)&e."
+        Other:
+          Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept that players teleport request because they are teleporting."
+    Combat:
+      Player:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept that players teleport request because you are in combat."
+      Target:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept that players teleport request because that player is in combat."
+    Faction:
+      Player:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept that players teleport request while in someone elses faction claim."
+      Target:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept that players teleport request while the players in someone elses faction claim."
+    Accepted:
+      Player:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have accepted the player &a%player's &eteleport request. Teleportation will commence in &f%seconds second(s)&e."
+      Receiver:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe player &a%player &ehas accepted your teleport request."
+  TPDeny:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /tpdeny <player>"
+    Offline:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThat player is not connected to the server."
+    Yourself:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot deny a teleport request from yourself."
+    Pending:
+      Player:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have a pending teleport request from that player."
+      Recent:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have a recent pending teleport request."
+    Accepted:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot deny that players teleport request because it has already been accepted."
+    Denied:
+      Player:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have denied the player &c%player's &eteleport request."
+      Target:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe player &c%player &ehas denied your teleport request."
+  TPACancel:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /tpacancel <player>"
+    Offline:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThat player is not connected to the server."
+    Yourself:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot cancel a teleport request from yourself."
+    Request:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou haven't sent a teleport request to that player."
+    Cancelled:
+      Request:
+        Player:
+          Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have cancelled the teleport request to the player &c%player&e."
+        Target:
+          Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe player &c%player &ehas cancelled their teleport request."
+      Teleport:
+        Player:
+          Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have cancelled the player &c%player's &eteleport."
+        Target:
+          Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe player &c%player &ehas cancelled your teleport."
+    None:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThere isn't a pending teleport or request for that player."
+  Fix:
+    Permission:
+      Command:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+      Hand:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to fix items in your hand."
+      All:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to fix all items in your inventory."
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /fix <Hand | All>"
+    Hand:
+      Holding:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou must be holding an item in your hand."
+      Item:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eThe item in your hand cannot be fixed."
+    Fixed:
+      Hand:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe item in your hand has been &b&lFIXED&e."
+      All:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eAll items in your inventory have been &b&lFIXED&e."
+  Bless:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+    Blessed:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eAll of your debuffs have been &c&lREMOVED&e."
+  Donation:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /donation <player>"
+    Donation:
+      Lines:
+        - " &f&l** &b%player has donated so everyone gets effects! &f&l**"
+        - " &c&l(!) &bCurrently &9&l&n70% OFF GLOBAL SALE&r &boff everything!"
+        - "&7&o(( &3&lTIP: &7They donated at our shop &b&nshop.jurassicpvp.com&7&o! ))"
+  GiveAll:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /giveall [<amount>]"
+    Numerical:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must provide a numerical value."
+    Given:
+      Player:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have given &a&lALL &eplayers on the server &7x%amount %item&e."
+      Target:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have received &7x%amount %item &efrom the player &d%player&e."
+  EcoGiveAll:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Economy:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou cannot perform that command because the economy is disabled on the server."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /ecogiveall <amount>"
+    Numerical:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must provide a numerical value."
+    Given:
+      Player:
+        Message: "&aJurassic&2PvP &8| &eInfo&8: &eYou have given &a&lALL &eplayers on the server &7$%amount&e."
+      Target:
+        Message: "&aJurassic&2PvP &8| &eInfo&8: &eYou have received &7$%amount &efrom the player &d%player&e."
+  XPGiveAll:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Economy:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou cannot perform that command because the economy is disabled on the server."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /xpgiveall <amount>"
+    Numerical:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must provide a numerical value."
+    Given:
+      Player:
+        Message: "&aJurassic&2PvP &8| &eInfo&8: &eYou have given &a&lALL &eplayers on the server &7%amount XP&e."
+      Target:
+        Message: "&aJurassic&2PvP &8| &eInfo&8: &eYou have received &7%amount XP &efrom the player &d%player&e."
+  EXPGiveAll:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Economy:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou cannot perform that command because the economy is disabled on the server."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /expgiveall <amount>"
+    Numerical:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must provide a numerical value."
+    Given:
+      Player:
+        Message: "&aJurassic&2PvP &8| &eInfo&8: &eYou have given &a&lALL &eplayers on the server &7%amount EXP&e."
+      Target:
+        Message: "&aJurassic&2PvP &8| &eInfo&8: &eYou have received &7%amount EXP &efrom the player &d%player&e."
+  DepthStriderCrystal:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /depthstridercrystal give <player> [<amount>]"
+    Connected:
+      Message: "&bJurassicCommands &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    Numerical:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must provide a numerical value."
+    Given:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have given yourself &7x%amount Depth Strider Shard(s)&e."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have given the player &d%player &7x%amount Depth Strider Shard(s)&e."
+  EnderChest:
+    Permission:
+      Command:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+      Other:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to view an enderchest of another player."
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /enderchest [<player>]"
+    Connected:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+  Sudo:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /sudo <player> <command>"
+    Connected:
+      Message: "&bJurassicCommands &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    Yourself:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou cannot sudo yourself."
+    Sudo:
+      Message: "&bJurassicCommands &8| &aInfo&8: &eYou have sudo the player &7%player &eto do the command &f&o'%command'&e."
+  Top:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Block:
+      Message: "&bJurassicCommands &8| &cError&8: &eThere is no block above you."
+    Teleported:
+      Message: "&bJurassicCommands &8| &aInfo&8: &eYou have teleported to the highest block."
+  More:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Hand:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must be holding an item in your hand."
+    Given:
+      Message: "&bJurassicCommands &8| &aInfo&8: &eYou have given yourself a max stack of the item in your hand."
+  Clear:
+    Permission:
+      Command:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+      Other:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to clear another players inventory."
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /clear [<player>]"
+    Connected:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    Cleared:
+      Yourself:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have cleared your inventory."
+      Target:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have cleared the player &7%player's &einventory."
+  Rename:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /rename <displayname>"
+    Hand:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must be holding an item in your hand."
+    Renamed:
+      Message: "&bJurassicCommands &8| &aInfo&8: &eYou have renamed the item in your hand to '&f%displayname&e'."
+  Fly:
+    Permission:
+      Command:
+        Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+      Other:
+        Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to toggle flight for other players."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /fly [<player>]"
+    Connected:
+      Message: "&bJurassicCommands &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    Flight:
+      Yourself:
+        Enabled:
+          Message: "&bJurassicCommands &8| &aInfo&8: &eYou have &a&lENABLED &eflight."
+        Disabled:
+          Message: "&bJurassicCommands &8| &aInfo&8: &eYou have &c&lDISABLED &eflight."
+      Target:
+        Enabled:
+          Message: "&bJurassicCommands &8| &aInfo&8: &eYou have &a&lENABLED &eflight for the player &d%player&e."
+        Disabled:
+          Message: "&bJurassicCommands &8| &aInfo&8: &eYou have &c&lDISABLED &eflight for the player &d%player&e."
+  God:
+    Permission:
+      Command:
+        Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+      Other:
+        Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to toggle god mode for other players."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /god [<player>]"
+    Connected:
+      Message: "&bJurassicCommands &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    God:
+      Yourself:
+        Enabled:
+          Message: "&bJurassicCommands &8| &aInfo&8: &eYou have &a&lENABLED &egod mode."
+        Disabled:
+          Message: "&bJurassicCommands &8| &aInfo&8: &eYou have &c&lDISABLED &egod mode."
+      Target:
+        Enabled:
+          Message: "&bJurassicCommands &8| &aInfo&8: &eYou have &a&lENABLED &egod mode for the player &d%player&e."
+        Disabled:
+          Message: "&bJurassicCommands &8| &aInfo&8: &eYou have &c&lDISABLED &egod mode for the player &d%player&e."
+  MSGToggle:
+    Enabled:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou will now be able to receive private messages from players on this server."
+    Disabled:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou will no longer be able to receive private messages from players on this server."
+  Ignore:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /ignore <player>"
+    Yourself:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot ignore yourself."
+    Ignore:
+      Added:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have added the player &7%player &eto your ignore list. You will no longer be able to receive private messages from them on this server."
+      Removed:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have removed the player &7%player &efrom your ignore list. You will now be able to receive private messages from them on this server."
+  MSG:
+    Disabled:
+      Yourself:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot send a private message because you have them disabled."
+      Target:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot send a private message to the player &7%player &ebecause they have them disabled."
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /msg <player> <message>"
+    Connected:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe player &7%player &eisn't connected to your server."
+    Yourself:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot send a private message to yourself."
+    Ignored:
+      Yourself:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot send a private message to the player &7%player &ebecause you have them ignored."
+      Target:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot send a private message to the player &7%player &ebecause they have you ignored."
+    Message:
+      From:
+        Prefix:
+          Message: "&8[&b&lPM&8] &8[&7From -> &8[%prefix&8] &7%player&8]&7: &f%message"
+        Empty:
+          Message: "&8[&b&lPM&8] &8[&7From -> &7%player&8]&7: &f%message"
+      To:
+        Prefix:
+          Message: "&8[&b&lPM&8] &8[&7To -> &8[%prefix&8] &7%player&8]&7: &f%message"
+        Empty:
+          Message: "&8[&b&lPM&8] &8[&7To -> &7%player&8]&7: &f%message"
+  GameMode:
+    Permission:
+      Command:
+        Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+      Other:
+        Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to set the gamemode for other players."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /gamemode <gamemode> [<player>]"
+    Connected:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe player &7%player &eisn't connected to your server."
+    Exist:
+      Message: "&bJurassicCommands &8| &cError&8: &eThe gamemode &7&o'%gamemode' &edoes not exist."
+    Set:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have set your gamemode to &a&l%gamemode&e."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have set the player &d%player's &egamemode to &a&l%gamemode&e."
+  Reply:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /reply <message>"
+    Reply:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThere is no player to reply to."
+  Balance:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /balance [<player>]"
+    Fetch:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eUnable to fetch the player &7%player's &ebalance."
+    Balance:
+      Yourself:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYour balance is &6$%balance&e."
+      Target:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &7%player's &ebalance is &6$%balance&e."
+  BalanceTop:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /balancetop [<page>]"
+    Numerical:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou must provide a numerical value."
+    Pages:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThere are not that many pages."
+    Title:
+      Lines:
+        - "&aJurassic&2PvP &8| &6Balance Top &7(&f%current_page / %max_page&7)"
+        - "&8[&bServer Balance&8: &f$%server_balance&8]"
+    Balance:
+      Message: " &7&o#%position&8: &f%player &8- &e$%balance"
+  Ignores:
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /ignores [<page>]"
+    Numerical:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou must provide a numerical value."
+    Pages:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThere are not that many pages."
+    Ignoring:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou are not ignoring any players."
+    Title:
+      Message: "&aJurassic&2PvP &8| &cIgnored Players &7(&f%current_page / %max_page&7)"
+    Ignore:
+      Message: " &7&o#%position&8: &f%player"
+  Pay:
+    Disabled:
+      Yourself:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot send a payment because you have them disabled."
+      Target:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot send a payment to the player &7%player &ebecause they have them disabled."
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /pay <player> <money>"
+    Connected:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    Yourself:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot send money to yourself."
+    Numerical:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou must provide a numerical value."
+    Length:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe amount must be less than 1 Billion."
+    Zero:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou must provide a number greater than zero."
+    Enough:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have enough money to send."
+    Paid:
+      Player:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have sent &6$%money &eto the player &d%player&e."
+      Target:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have received &6$%money &efrom the player &d%player&e."
+  Invsee:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eInvalid: /invsee <player>"
+    Connected:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    Yourself:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot view your own inventory."
+  PayToggle:
+    Enabled:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou will now be able to receive payments from players on this server."
+    Disabled:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou will no longer be able to receive payments from players on this server."
+  TP:
+    Permission:
+      Command:
+        Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+      Other:
+        Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to teleport other players."
+    Invalid:
+      Player:
+        Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /tp <player> [<player>]"
+      Console:
+        Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /tp <player> <player>"
+    Connected:
+      Message: "&bJurassicCommands &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    Yourself:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou cannot teleport to yourself or yourself to others."
+    Teleported:
+      Player:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have teleported to the player &d%player&e."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have teleported the player &d%player1 &eto the player &d%player2&e."
+  Eco:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /eco <give|take|set|reset> <player> [<amount>]"
+    Connected:
+      Message: "&bJurassicCommands &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    Numerical:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must provide a numerical value."
+    Given:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have given yourself &6$%amount&e."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have given &6%amount &eto the player &d%player&e."
+    Taken:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have taken &6$%amount &efrom yourself."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have taken &6%amount &efrom the player &d%player&e."
+    Set:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have set your balance to &6$%amount."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have set the player &d%player's &ebalance to &6$amount&e."
+    Reset:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have reset your balance to &6$%amount&e."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have reset the player &d%player's &ebalance to &6$%balance&e."
+  EXP:
+    EXP:
+      Player:
+        Message: "&aJurassic&2PvP &8| &eExperience&8: &6%exp EXP &7/ &eLevel&8: &d%xp XP &7/ &eEXP to Level&8: &c%required EXP"
+      Target:
+        Message: "&aJurassic&2PvP &8| &eExperience&8: &6%exp EXP &7/ &eLevel&8: &d%xp XP &7/ &eEXP to Level&8: &c%required EXP"
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /exp <give|take|set|show> <player> [<amount>]"
+    Connected:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    Numerical:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must provide a numerical value."
+    Given:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have given yourself &6%amount EXP&e."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have given &6%amount EXP &eto the player &d%player&e."
+    Taken:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have taken &6%amount EXP &efrom yourself."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have taken &6%amount EXP &efrom the player &d%player&e."
+    Set:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have set your EXP to &6%amount."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have set the player &d%player's &eEXP to &6%amount&e."
+  XP:
+    XP:
+      Player:
+        Message: "&aJurassic&2PvP &8| &eExperience&8: &6%exp EXP &7/ &eLevel&8: &d%xp XP &7/ &eEXP to Level&8: &c%required EXP"
+      Target:
+        Message: "&aJurassic&2PvP &8| &eExperience&8: &6%exp EXP &7/ &eLevel&8: &d%xp XP &7/ &eEXP to Level&8: &c%required EXP"
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /xp <give|take|set|show> <player> [<amount>]"
+    Connected:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eThe player &7%player &eisn't connected to the server."
+    Numerical:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must provide a numerical value."
+    Given:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have given yourself &6%amount XP&e."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have given &6%amount XP &eto the player &d%player&e."
+    Taken:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have taken &6%amount XP &efrom yourself."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have taken &6%amount XP &efrom the player &d%player&e."
+    Set:
+      Yourself:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have set your XP to &6%amount."
+      Target:
+        Message: "&bJurassicCommands &8| &aInfo&8: &eYou have set the player &d%player's &eXP to &6%amount&e."
+  Wilderness:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+    Pending:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou have a pending teleport."
+    Combat:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot teleport to the wilderness because you are in combat."
+    Teleporting:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou will be teleported in &7%seconds Seconds&e."
+    Teleported:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have been teleport to the &2Wilderness&e."
+  Workbench:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+  Lore:
+    Permission:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou don't have permission to perform that command."
+    Invalid:
+      Message: "&bJurassicCommands &8| &cError&8: &eInvalid: /lore <lore>"
+    Hand:
+      Message: "&bJurassicCommands &8| &cError&8: &eYou must be holding an item in your hand."
+    Added:
+      Message: "&bJurassicCommands &8| &aInfo&8: &eYou have added the line '&f%lore&e' to the lore for the item in your hand."
+Tasks:
+  Timeout:
+    Teleport:
+      Player:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYour teleport request to the player &c%player &ehas timed out."
+      Receiver:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe teleport request from the player &c%player &ehas timed out."
+  Expiry:
+    Teleport:
+      Teleported:
+        Player:
+          Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have teleported to the player &a%player&e."
+        Target:
+          Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe player &a%player &ehas teleported to you."
+      Combat:
+        Player:
+          Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept that players teleport request because you are in combat."
+        Target:
+          Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept that players teleport request because that player is in combat."
+      Faction:
+        Player:
+          Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept that players teleport request while in someone elses faction claim."
+        Target:
+          Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot accept that players teleport request while the players in someone elses faction claim."
+Listeners:
+  Chat:
+    Tags:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou cannot use &f&o'[item]' &eand &f&o'[brag]' &etag in the same message."
+    Item:
+      Permission:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to use the &f&o'[item]' &etag."
+      Tag:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou can only use one &f&o'[item]' &etag in a message."
+      Hand:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou must be holding an item in your hand to use the &f&o'[item]' &etag."
+      Item:
+        Displayname: "&f» %displayname &7(x%amount) &f«"
+        Empty: "&f» %item &7(x%amount) &f«"
+    Brag:
+      Permission:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to use the &f&o'[brag]' &etag."
+      Tag:
+        Message: "&aJurassic&2PvP &8| &cError&8: &eYou can only use one &f&o'[brag]' &etag in a message."
+      Brag:
+        Display: "&f» &a&l%player's Inventory &f«"
+        Hover: "&7Click to view &f%player's &7inventory!"
+  Command:
+    Permission:
+      Message: "&aJurassic&2PvP &8| &cError&8: &eYou don't have permission to perform that command."
+  Move:
+    Teleport:
+      Cancelled:
+        Player:
+          Message: "&aJurassic&2PvP &8| &aInfo&8: &eYour pending teleport has been cancelled because you moved."
+        Other:
+          Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe teleport to the player &c%player &ehas been cancelled because you moved."
+      Expiry:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe player &c%player &ecouldn't teleport to you because they moved."
+  Combat:
+    Teleport:
+      Cancelled:
+        Player:
+          Message: "&aJurassic&2PvP &8| &aInfo&8: &eYour pending teleport has been cancelled because you entered combat."
+        Other:
+          Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe teleport to the player &c%player &ehas been cancelled because you entered combat."
+      Request:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe teleport request from the player &c%player &ehas automatically been cancelled because they entered combat."
+      Expiry:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe player &c%player &edidn't teleport to you in time because they entered combat."
+      Time:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou didn't teleport to the player &c%player &ein time because you entered combat."
+  Inventory:
+    Icon:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have set the icon for your home &6%home &eto &6&n%icon&e."
+  Interact:
+    Money:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have deposited &6$%money &einto your balance using &6%player's &ebank note."
+    Experience:
+      Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou have received &6%experience &eexpierience from &6%player's &eexperience bottle."
+  Quit:
+    Teleport:
+      Request:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe teleport request from the player &c%player &ehas automatically been cancelled because they left the server."
+      Expiry:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eThe player &c%player &edidn't teleport to you in time before they left the server."
+      Time:
+        Message: "&aJurassic&2PvP &8| &aInfo&8: &eYou didn't teleport to the player &c%player &ein time before they left the server."
+Scoreboard:
+  Default:
+    Displayname: "&a&lJurassic&2&lPvP&r &7%month/%day"
+    Lines:
+      - ""
+      - "&a&lAccount"
+      - "&f%player"
+      - ""
+      - "&6&lBalance"
+      - "&f$%balance"
+      - ""
+      - "&b&lXP"
+      - "&f%xp"
+      - ""
+      - "&c&lKDR"
+      - "&f%kdr &7[%kills:%deaths]"
+      - ""
+      - "&e&lServer"
+      - "&fJurassicPvP.com"
+  Faction:
+    Displayname: "&a&lJurassic&2&lPvP&r &7%month/%day"
+    Lines:
+      - ""
+      - "&a&lAccount"
+      - "&f%player"
+      - ""
+      - "&6&lBalance"
+      - "&f$%balance"
+      - ""
+      - "&b&lXP"
+      - "&f%xp"
+      - ""
+      - "&c&lKDR"
+      - "&f%kdr &7[%kills:%deaths]"
+      - ""
+      - "&e&lFaction"
+      - "&a%faction_online &f/ &7%faction_members"
+Menus:
+  Warps:
+    Title: "&8Warps"
+    Items:
+      Next:
+        Displayname: "&aNext Page"
+      Previous:
+        Displayname: "&aPrevious Page"
+      Warp:
+        Displayname: "&7%warp Warp"
+        Lore:
+          - "&e%xx, %zz"
+          - ""
+          - "%description"
+          - ""
+          - "&e&l%nearby_players nearby player(s)"
+          - "&c&l%pvp_players PVP-enabled player(s)"
+          - ""
+          - "&7Click to teleport to this warp!"
+  Homes:
+    Title: "&8Your Homes (%current_homes/%max_homes)"
+    Items:
+      Next:
+        Displayname: "&aNext Page"
+      Previous:
+        Displayname: "&aPrevious Page"
+      Home:
+        Displayname: "&b&l%home"
+        Lore:
+          - "&7Location: &f%xx, %yy, %zz"
+          - "&7World: &f%world"
+          - ""
+          - "&7Left-Click to teleport"
+          - "&7Middle-Click to delete home"
+          - "&7Right-Click to edit icon"
+  Icons:
+    Title: "&8Select Home Icon"
+    Items:
+      Item:
+        Displayname: "&a&l%displayname"
+        Lore:
+          - "&7Click to select material."
+  Invsee:
+    Title: "&8%player's Inventory"
+    Items:
+      Glass:
+        Displayname: "&aJurassic&2PvP"
+Items:
+  Withdraw:
+    Item:
+      Material: "PAPER"
+    Displayname: "&b&lBank Note &7(Right-Click)"
+    Lore:
+      - "&dValue&f: &7$%money"
+      - "&dSignature&f: &7%player"
+  XPBottle:
+    Item:
+      Material: "EXP_BOTTLE"
+    Displayname: "&a&lExperience Bottle &7(Right-Click)"
+    Lore:
+      - "&dExperience&f: &7%experience"
+      - "&dSignature&f: &7%player"
